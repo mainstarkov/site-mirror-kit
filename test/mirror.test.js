@@ -38,11 +38,11 @@ test('browser capture replays styles, scripts, JSON, redirects, pages and extern
   const originURL = `http://127.0.0.1:${origin.address().port}`;
   let replay, browser;
   try {
-    const result = await capture(`${originURL}/start`, join(temporary, 'copy'), { maxPages: 2, waitMs: 100 });
+    const result = await capture(`${originURL}/start`, join(temporary, 'captures', 'site'), { maxPages: 2, waitMs: 100 });
     assert.equal(result.manifest.pages.length, 2);
     assert.equal(result.manifest.errors.length, 0, JSON.stringify(result.manifest.errors));
     assert.ok(Object.keys(result.manifest.resources).some(url => url.endsWith('/pixel.svg')));
-    await assert.rejects(capture(originURL, join(temporary, 'copy')), /EEXIST/);
+    await assert.rejects(capture(originURL, join(temporary, 'captures', 'site')), /EEXIST/);
     await close(origin);
     await close(cdn);
     replay = await serve(result.directory, { port: 0 });
@@ -65,7 +65,7 @@ test('browser capture replays styles, scripts, JSON, redirects, pages and extern
     // A modified manifest cannot read files outside the archive directory.
     const manifestFile = join(result.directory, 'manifest.json');
     const manifest = JSON.parse(await readFile(manifestFile));
-    manifest.resources[`${originURL}/escape`] = { status: 200, type: 'text/plain', file: '../secret' };
+    manifest.resources[`${originURL}/escape`] = { status: 200, type: 'text/plain', file: '../../secret' };
     await writeFile(join(temporary, 'secret'), 'SECRET');
     await writeFile(manifestFile, JSON.stringify(manifest));
     const malicious = await serve(result.directory, { port: 0 });

@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile, realpath } from 'node:fs/promises';
-import { resolve, join, extname, sep } from 'node:path';
+import { resolve, join, extname, sep, dirname } from 'node:path';
 import { createServer } from 'node:http';
 
 function webURL(value) {
@@ -22,6 +22,7 @@ export async function capture(url, directory, { maxPages = 1, waitMs = 1500, cha
   const browser = await chromium.launch({ headless: true, ...(channel ? { channel } : {}) });
   let context;
   try {
+    await mkdir(dirname(output), { recursive: true });
     await mkdir(output); // Refuse existing targets, including symlinks.
     await mkdir(join(output, 'files'));
     await mkdir(join(output, 'snapshots'));

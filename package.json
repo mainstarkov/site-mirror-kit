@@ -1,0 +1,13 @@
+{
+  "name": "site-mirror-kit",
+  "version": "0.1.0",
+  "description": "Capture browser-visible website resources and replay them on localhost",
+  "type": "module",
+  "bin": { "site-mirror": "src/cli.js" },
+  "exports": "./src/index.js",
+  "files": ["src", "README.md", "LICENSE"],
+  "scripts": { "test": "node --test", "setup": "playwright install chromium" },
+  "engines": { "node": ">=22" },
+  "dependencies": { "playwright": "1.64.1" },
+  "license": "MIT"
+}

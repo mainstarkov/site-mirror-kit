@@ -53,7 +53,7 @@ test('browser capture replays styles, scripts, JSON, redirects, pages and extern
     await page.goto(replay.url);
     await page.waitForFunction(() => document.querySelector('#data').textContent === 'Saved JSON');
     assert.equal(await page.locator('body').evaluate(node => getComputedStyle(node).color), 'rgb(12, 34, 56)');
-    await page.waitForFunction(() => document.querySelector('img').naturalWidth === 1);
+    await page.waitForFunction(() => document.querySelector('img').naturalWidth === 1, null, { timeout: 2000 });
     await page.locator('button').click();
     assert.equal(await page.locator('button').textContent(), 'Works');
     await page.locator('a').click();

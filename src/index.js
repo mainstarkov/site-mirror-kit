@@ -123,7 +123,7 @@ function rewrite(body, source, entry, type) {
   let text = body.toString('utf8');
   if (source.origin !== entry.origin) {
     const prefix = `/_mirror/${Buffer.from(source.origin).toString('base64url')}`;
-    text = text.replace(/(["'(=]\s*)\/(?!\/|_mirror\/)/g, `$1${prefix}/`);
+    text = text.replace(/(["'(=]\s*)\/(?!\/|_mirror\/|>)/g, `$1${prefix}/`);
   }
   // shortcut: textual URL rewriting cannot cover computed/obfuscated URLs; missing requests return 404.
   text = text.replace(/https?:\/\/[^\s<>"'`\\)]+/g, value => {

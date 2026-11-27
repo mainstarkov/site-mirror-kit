@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>site-mirror-kit · mainstarkov</title><style>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site Mirror Kit · Установка и запуск</title><style>
 :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#13141b;color:#f9f6ef}
 *{box-sizing:border-box}body{margin:0}.wrap{max-width:880px;margin:auto;padding:clamp(28px,8vw,90px) 24px}
 h1{font-size:clamp(2.5rem,8vw,5.2rem);line-height:1;letter-spacing:-.07em;overflow-wrap:anywhere;margin:16px 0 24px}
@@ -8,9 +9,73 @@ h2{font-size:1.1rem;margin:0}.lead{max-width:63ch;color:#dad9e3;font-size:1.15re
 a{color:#ffbd89}.top{display:flex;gap:24px;flex-wrap:wrap}.box{padding:24px;margin-top:20px;background:#1d1f2a;border:1px solid #3c3e52;border-radius:14px}
 pre{background:#14151d;padding:15px;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;color:#d6f9e9}
 ul{padding-left:1.2rem;line-height:1.9}.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px;padding:0;list-style:none}.list a{display:block;background:#1d1f2a;border:1px solid #3c3e52;padding:10px 14px;border-radius:9px}
-</style></head>
-<body><main class="wrap"><nav class="top"><a href="https://github.com/mainstarkov">mainstarkov</a><a href="https://github.com/mainstarkov/site-mirror-kit">Исходники ↗</a></nav>
-<h1>site-mirror-kit</h1><p class="lead">Save browser-visible website resources and replay them on localhost</p><section class="box"><h2>Локальный запуск</h2><pre>npm ci
+
+html{scroll-behavior:smooth}.os-links{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.os-links a{border:1px solid #565870;padding:8px 13px;border-radius:99px;text-decoration:none;color:#fff7ef}.os-links a:hover,.os-links a:focus-visible{border-color:#ffbd89;color:#ffbd89}.box{scroll-margin-top:12px}.box p{line-height:1.6}.box h2{font-size:clamp(1.4rem,4vw,1.95rem);letter-spacing:-.035em}.box h3{margin-top:22px;font-size:1rem}.snippet{background:#14151d;border:1px solid #3c3e52;border-radius:10px;margin:14px 0}.snippet-head{padding:8px 13px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #3c3e52;color:#dad9e3;font-size:.82rem}.snippet-head button{cursor:pointer;background:#292b39;color:#fff7ef;padding:6px 9px;border:1px solid #565870;border-radius:6px;font:inherit}.snippet-head button:focus-visible{outline:2px solid #ffbd89;outline-offset:2px}.snippet pre{margin:0;font-size:.88rem}.note{color:#dad9e3}.status-copy:empty{display:none}.status-copy{position:sticky;bottom:14px;width:max-content;max-width:100%;background:#222533;border:1px solid #6b6d86;border-radius:8px;padding:8px 12px}.tag{font-family:ui-monospace,monospace;color:#9ee4c5}.zip{white-space:nowrap}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.guide-code{background:#14151d;border:1px solid #3c3e52;border-radius:10px;margin:14px 0}.code-head{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #3c3e52;padding:8px 13px;color:#dad9e3;font-size:.85rem}.code-head button{font:inherit;border:1px solid #65677d;background:#292b39;color:#fff7ef;border-radius:7px;padding:7px 10px;cursor:pointer}.guide-code pre{margin:0;font-size:.88rem}.box p{overflow-wrap:anywhere}.tool-links{display:flex;gap:12px;flex-wrap:wrap}.status-copy{z-index:2}</style></head>
+<body><main class="wrap">
+<nav class="top" aria-label="Проект"><a href="https://mainstarkov.github.io/portfolio/">← К портфолио</a><a href="https://github.com/mainstarkov/site-mirror-kit">Исходники ↗</a><a href="https://github.com/mainstarkov/site-mirror-kit/archive/refs/heads/dev.zip">Скачать ZIP ↓</a></nav>
+<h1>Site Mirror Kit</h1>
+<p class="lead">Утилита сохраняет доступные браузеру ресурсы сайта и позволяет открыть архив через локальный сервер.</p>
+<section class="box" aria-label="Описание проекта"><h2>Что умеет проект</h2><ul><li>Сохраняет браузерные ответы и снимки страниц.</li><li>Создаёт манифест ресурсов, статусов и файлов.</li><li>Может открыть архив локально после записи.</li></ul>
+<p><strong>Требования.</strong> Node.js 22+, npm и Chromium или установленный Google Chrome.</p>
+<div class="tool-links"><a href="https://nodejs.org/en/download">Установить Node.js ↗</a><a href="https://git-scm.com/install/">Установить Git ↗</a></div>
+</section>
+<nav class="os-links" aria-label="Операционная система"><a href="#macos">macOS</a><a href="#windows">Windows</a><a href="#linux">Linux</a></nav>
+<section class="box" id="macos">
+<h2>macOS</h2>
+<h3>Подготовить Терминал</h3><p>Установите Node.js для macOS.</p><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>node --version</code></pre></div>
+<h3>Скачать проект</h3><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>git clone https://github.com/mainstarkov/site-mirror-kit.git
+cd site-mirror-kit</code></pre></div>
+<p>Или <a href="https://github.com/mainstarkov/site-mirror-kit/archive/refs/heads/dev.zip">скачайте ZIP</a>, распакуйте и откройте терминал в папке <code>site-mirror-kit-dev</code>.</p>
+<h3>Запустить</h3><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>npm ci
 npm run setup
-npm link
-site-mirror capture https://example.com/ --out captures/example --serve</pre><p>Сохранённая копия: http://127.0.0.1:4173.</p></section><section class="box"><h2>Пример работы</h2><pre>Архив содержит manifest.json, загруженные ресурсы и DOM-снимки.</pre></section></main></body></html>
+node src/cli.js capture &quot;https://example.com/&quot; --out captures/example --serve</code></pre></div>
+<p>Для повторного запуска остановите предыдущий сервер через Ctrl+C. Для нового захвата выберите новый каталог <code>--out</code>.</p><h3>Дополнительная команда или проверка</h3><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>node src/cli.js serve captures/example</code></pre></div>
+</section><section class="box" id="windows">
+<h2>Windows</h2>
+<h3>Подготовить PowerShell</h3><p>Установите Node.js для Windows и откройте новое окно PowerShell.</p><div class="guide-code"><div class="code-head"><span>PowerShell</span></div><pre><code>node --version</code></pre></div>
+<h3>Скачать проект</h3><div class="guide-code"><div class="code-head"><span>PowerShell</span></div><pre><code>git clone https://github.com/mainstarkov/site-mirror-kit.git
+Set-Location .\site-mirror-kit</code></pre></div>
+<p>Или <a href="https://github.com/mainstarkov/site-mirror-kit/archive/refs/heads/dev.zip">скачайте ZIP</a>, распакуйте и откройте терминал в папке <code>site-mirror-kit-dev</code>.</p>
+<h3>Запустить</h3><div class="guide-code"><div class="code-head"><span>PowerShell</span></div><pre><code>npm ci
+npm run setup
+node src/cli.js capture &quot;https://example.com/&quot; --out captures/example --serve</code></pre></div>
+<p>Для повторного запуска остановите предыдущий сервер через Ctrl+C. Для нового захвата выберите новый каталог <code>--out</code>.</p><h3>Дополнительная команда или проверка</h3><div class="guide-code"><div class="code-head"><span>PowerShell</span></div><pre><code>node src/cli.js serve captures/example</code></pre></div>
+</section><section class="box" id="linux">
+<h2>Linux</h2>
+<h3>Подготовить Терминал</h3><p>Установите Node.js через официальный установщик или менеджер пакетов, подходящий вашему дистрибутиву.</p><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>node --version</code></pre></div>
+<h3>Скачать проект</h3><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>git clone https://github.com/mainstarkov/site-mirror-kit.git
+cd site-mirror-kit</code></pre></div>
+<p>Или <a href="https://github.com/mainstarkov/site-mirror-kit/archive/refs/heads/dev.zip">скачайте ZIP</a>, распакуйте и откройте терминал в папке <code>site-mirror-kit-dev</code>.</p>
+<h3>Запустить</h3><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>npm ci
+npm run setup
+node src/cli.js capture &quot;https://example.com/&quot; --out captures/example --serve</code></pre></div>
+<p>Для повторного запуска остановите предыдущий сервер через Ctrl+C. Для нового захвата выберите новый каталог <code>--out</code>.</p><h3>Дополнительная команда или проверка</h3><div class="guide-code"><div class="code-head"><span>Терминал</span></div><pre><code>node src/cli.js serve captures/example</code></pre></div>
+</section>
+<section class="box"><h2>Как проверить результат</h2><p>Тест из репозитория использует локальные страницы и проверяет, что архив открывается после остановки источника. Команды записи и повторного просмотра приведены ниже.</p>
+<p><strong>Адрес и режим работы.</strong> Архив открывается на http://127.0.0.1:4173. Порт меняется через --port.</p>
+<p><strong>Исходники.</strong> src/cli.js — команды, src/index.js — запись и воспроизведение, test/ — интеграционная проверка.</p>
+</section><p class="status-copy" id="copy-status" role="status"></p>
+</main><script>
+const guideStatus = document.querySelector("#copy-status");
+if (navigator.clipboard) {
+  let hide;
+  for (const block of document.querySelectorAll(".guide-code")) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "Копировать";
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(block.querySelector("code").textContent);
+        guideStatus.textContent = "Команды скопированы.";
+      } catch {
+        guideStatus.textContent = "Выделите и скопируйте команды вручную.";
+      }
+      clearTimeout(hide);
+      hide = setTimeout(() => { guideStatus.textContent = ""; }, 2200);
+    });
+    block.querySelector(".code-head").append(button);
+  }
+}
+</script></body></html>

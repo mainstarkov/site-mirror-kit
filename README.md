@@ -1,5 +1,7 @@
 # Site Mirror Kit
 
+**[Попробовать демо](https://mainstarkov.github.io/portfolio/play/?project=site-mirror-kit)**
+
 Утилита сохраняет доступные браузеру ресурсы сайта и позволяет открыть архив через локальный сервер.
 
 [Открыть демо](https://mainstarkov.github.io/site-mirror-kit/)
